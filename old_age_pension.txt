@@ -1,0 +1,51 @@
+Scheme Name: Indira Gandhi National Old Age Pension Scheme (IGNOAPS)
+
+Details:
+This scheme is one of the five sub-schemes under the National Social Assistance Programme (NSAP), administered by the Ministry of Rural Development.
+
+IGNOAPS provides a monthly pension to elderly citizens living Below Poverty Line (BPL). Citizens aged 60 years and above are eligible:
+- ₹200 per month for those aged 60–79 years
+- ₹500 per month for those aged 80 years and above
+
+The NSAP was launched on 15th August 1995 to support destitute individuals who have little or no means of subsistence. It applies to both rural and urban areas.
+
+Objectives of NSAP:
+1. Provide social assistance to poor households in cases of old age, death, or maternity.
+2. Ensure a minimum national standard of social protection, supplementing what States provide.
+3. Provide uniform social protection to beneficiaries across India.
+
+Other sub-schemes under NSAP:
+- Indira Gandhi National Widow Pension Scheme (IGNWPS)
+- Indira Gandhi National Disability Pension Scheme (IGNDPS)
+- National Family Benefit Scheme (NFBS)
+- Annapurna Scheme
+
+Benefits:
+- ₹200/month pension (age 60–79)
+- ₹500/month pension (age 80+)
+
+Eligibility:
+- Must be a citizen of India
+- Must belong to a Below Poverty Line (BPL) household
+- Must be 60 years or older
+
+Application Process:
+Online via UMANG Portal or App
+1. Visit https://web.umang.gov.in or download the UMANG App
+2. Login with mobile number and OTP
+3. Search for “NSAP” in services
+4. Select “Apply Online”
+5. Fill in the form, upload documents and photograph
+6. Choose mode of pension payment and submit
+
+Documents Required:
+- Duly filled and self-attested application form
+- Domicile Certificate
+- Residential Proof (e.g., Voter ID, Electricity Bill, Aadhaar)
+- Age Proof (e.g., Birth Certificate, School Record, Medical Certificate)
+- Aadhaar Card
+- Bank Passbook
+- Ration Card
+- Affidavit (attested by a Judicial/Executive Magistrate) declaring that no other pension or financial support is being received
+
+

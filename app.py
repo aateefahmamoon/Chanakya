@@ -3,15 +3,18 @@ import streamlit as st
 from dotenv import load_dotenv
 import google.generativeai as genai
 from langdetect import detect
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # Language detection helper
+
+
 def detect_language(text):
     return 'English'
 
 
 # Load environment variables
 load_dotenv()
-api_key = os.getenv("GEMINI_KEY")
+api_key = os.getenv("AIzaSyC9DQfoaCnWauHmgwJ9khxlAVfs-Im5iRk")
 genai.configure(api_key=api_key)
 
 # Streamlit page setup
@@ -286,8 +289,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Load scheme documents
+
+
 def load_scheme_documents(folder_path="schemes"):
     all_text = ""
+    if not os.path.exists(folder_path):
+        st.warning(
+            f"⚠️ Folder '{folder_path}' does not exist. Please create it and add scheme documents.")
+        return ""
     try:
         for filename in os.listdir(folder_path):
             if filename.endswith(".txt"):
@@ -299,12 +308,15 @@ def load_scheme_documents(folder_path="schemes"):
         st.exception(e)
         return ""
 
+
 context = load_scheme_documents()
 
 # Gemini response function
+
+
 def get_gemini_response(user_query, context):
     model = genai.GenerativeModel("gemini-2.5-flash")
-    
+
     # Detect language of the query
     user_lang = detect_language(user_query)
 
@@ -323,7 +335,7 @@ Question:
 {user_query}
 
 Answer:"""
-    
+
     response = model.generate_content(prompt)
     return response.text.strip()
 
@@ -340,7 +352,7 @@ with st.sidebar:
         <p>Government Schemes Assistant</p>
     </div>
     """, unsafe_allow_html=True)
-    
+
     st.markdown("""
     <div class="tips-card">
         <h4 style="color: #128c7e; font-family: 'Inter', sans-serif; margin-bottom: 1rem; font-size: 1rem;">💡 Quick Tips</h4>
@@ -348,7 +360,7 @@ with st.sidebar:
         <div class="tip-item">• Ask about eligibility, benefits, or application process</div>
     </div>
     """, unsafe_allow_html=True)
-    
+
     st.markdown("""
     <div class="tips-card">
         <h4 style="color: #128c7e; font-family: 'Inter', sans-serif; margin-bottom: 1rem; font-size: 1rem;">❓ Example Questions</h4>
@@ -370,14 +382,14 @@ with col2:
         <p class="header-subtitle">Your AI assistance for Government Schemes!</p>
     </div>
     """, unsafe_allow_html=True)
-    
+
     # Status card
     st.markdown("""
     <div class="status-card">
         <p class="status-text">✅ Assistant is now ready! Ask anything about government schemes</p>
     </div>
     """, unsafe_allow_html=True)
-    
+
     # Show chat history
     if st.session_state.chat_history:
         for q, a in st.session_state.chat_history:
@@ -386,7 +398,7 @@ with col2:
                 <strong>🧑 :</strong><br>{q}
             </div>
             """, unsafe_allow_html=True)
-            
+
             st.markdown(f"""
             <div class="assistant-message">
                 <strong>🤖 :</strong><br>{a}
@@ -408,28 +420,28 @@ st.markdown('</div>', unsafe_allow_html=True)
 if query:
     # Add user message to chat history immediately
     st.session_state.chat_history.append((query, ""))
-    
+
     # Show user message
     st.markdown(f"""
     <div class="user-message">
         <strong>🧑 :</strong><br>{query}
     </div>
     """, unsafe_allow_html=True)
-    
+
     # Show thinking spinner
     with st.spinner("🔍 Thinking! Please wait"):
         response = get_gemini_response(query, context)
-    
+
     # Show assistant response
     st.markdown(f"""
     <div class="assistant-message">
         <strong>🤖 :</strong><br>{response}
     </div>
     """, unsafe_allow_html=True)
-    
+
     # Update the last entry in chat history with the response
     st.session_state.chat_history[-1] = (query, response)
-    
+
     # Rerun to update the display
     st.rerun()
 

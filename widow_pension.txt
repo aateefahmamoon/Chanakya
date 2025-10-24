@@ -1,0 +1,37 @@
+Scheme Name: Indira Gandhi National Widow Pension Scheme (IGNWPS)
+
+Details:
+IGNWPS is a non-contributory pension scheme implemented by the Ministry of Rural Development, Government of India. It provides financial support to widows from poor families (Below Poverty Line - BPL) as a part of social security.
+
+Benefits:
+- ₹300 per month for widows aged 40–79 years
+- ₹500 per month for widows aged 80 years and above
+
+Eligibility:
+- The applicant must be a widow aged between 40 and 79 years.
+- The applicant must belong to a Below Poverty Line (BPL) household as per Government of India criteria.
+
+Exclusions:
+Pension will be discontinued if:
+- The widow remarries
+- The household is no longer Below Poverty Line (BPL)
+
+Application Process:
+Online / Offline
+
+Online:
+1. Download the UMANG App or visit [https://web.umang.gov.in/web_new/home](https://web.umang.gov.in/web_new/home)
+2. Login using mobile number and OTP
+3. Search for “NSAP”
+4. Click “Apply Online”
+5. Fill in details, select pension payment method, upload photo
+6. Submit the application
+
+Documents Required:
+- Husband’s Death Certificate (with the name of the surviving wife)
+- BPL Card
+- Age Proof:
+  • Birth certificate / School certificate preferred  
+  • If unavailable, Ration Card / Voter ID (EPIC) can be used  
+  • In absence of any, a government medical officer can issue an age certificate
+

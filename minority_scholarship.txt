@@ -1,0 +1,74 @@
+Scheme Name: Merit-cum-Means Scholarship for Professional and Technical Courses (Minority Affairs)
+
+Details:
+A scholarship scheme by the Ministry of Minority Affairs for students from minority communities pursuing technical and professional courses at undergraduate and postgraduate levels. The scheme aims to reduce the financial burden on families and encourage students to complete their education. Around 60,000 new scholarships are awarded every year, along with renewal scholarships.
+
+Benefits:
+- Course Fee: ₹20,000 per annum (or actuals, whichever is lower)
+- Monthly Maintenance Allowance (10 months/year):
+   - ₹1,000 for Hostellers
+   - ₹500 for Day Scholars
+- Full course fee is reimbursed for listed premier institutions.
+
+Eligibility:
+- Must be a student belonging to a minority community.
+- Must be pursuing a technical or professional course at the UG/PG level.
+- Minimum 50% marks (or equivalent grade) in the previous final exam.
+- Annual family income should not exceed ₹2.5 lakhs.
+
+Exclusions:
+- Availing any other scholarship from the Central Government.
+- Found violating any terms of the scholarship or making false declarations.
+- More than two students from the same family cannot apply.
+- Student will be debarred for that year if renewal deadline is missed.
+
+Application Process (Online):
+
+1. New Registration:
+   - Visit National Scholarships Portal → New Registration.
+   - Accept guidelines and terms.
+   - Verify mobile number with OTP.
+   - Complete e-KYC (if required).
+   - Receive Reference Number via SMS.
+
+2. OTR ID Generation:
+   - Install AadhaarFaceRD and NSP OTR App.
+   - Select “eKYC with FaceAuth”, enter reference number.
+   - Complete face authentication via AadhaarFaceRD to get OTR number.
+
+3. Fresh Application:
+   - Login using OTR number and set a new password.
+   - Fill in the application form, upload documents.
+   - Submit or save as draft.
+
+4. Track Payment:
+   - Use “Know Your Payment” feature on PFMS portal with Aadhaar, account number or NSP ID.
+
+Notes:
+- Online applications are verified first by the Institute, then by the State Nodal Agency.
+- Students are not permanently debarred for delays but must meet deadlines.
+
+Documents Required:
+- Student’s recent photo
+- Institution Verification Form
+- Income Certificate
+- Community Certificate (Self-certified if age ≥18)
+- Last exam mark sheet (self-attested)
+- Fee Receipt (current year)
+- Bank details (student or guardian)
+- Residential/Domicile Certificate
+- Bonafide certificate from institution (if studying outside domicile state)
+- Aadhaar or alternative ID documents
+
+Alternative IDs (if Aadhaar unavailable):
+- Aadhaar enrolment slip
+- Request letter for Aadhaar enrolment
+- Plus one of:
+  - Passport
+  - Ration Card
+  - Bank passbook with photo
+  - PAN Card
+  - School-issued identity certificate
+  - Driving License
+  - Any other document notified by the State/UT
+

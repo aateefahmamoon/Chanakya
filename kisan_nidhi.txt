@@ -1,0 +1,44 @@
+Scheme Name: Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)
+
+Objective:
+The scheme aims to supplement the financial needs of all landholding farmers’ families by providing support for crop health, yield improvement, and domestic needs. Under the scheme, an amount of ₹6000/- per year is transferred by the Central Government directly into the bank accounts of eligible farmers via Direct Benefit Transfer (DBT), subject to certain exclusions.
+
+Benefits:
+- ₹6000 per annum per eligible family.
+- Paid in three equal installments of ₹2000 every four months.
+
+Eligibility:
+- All landholding farmers’ families with cultivable land in their names are eligible.
+
+Exclusions:
+The following categories are excluded from benefits:
+1. All Institutional Land holders.
+2. Families with any member who is or has been:
+   - Holder of constitutional posts.
+   - Minister/State Minister/Member of Parliament or State Legislature.
+   - Mayor of a Municipal Corporation or Chairperson of District Panchayat.
+3. Serving or retired officers/employees of:
+   - Central/State Government Ministries and Departments.
+   - Public Sector Enterprises (PSEs).
+   - Autonomous Institutions or Local Bodies (except Group D/Class IV/MTS).
+4. Superannuated/retired pensioners receiving ₹10,000 or more per month (excluding Group D/Class IV/MTS).
+5. Persons who paid income tax in the last assessment year.
+6. Professionals like doctors, engineers, lawyers, CAs, architects who are registered and practicing.
+
+Application Process (Online via CSCs):
+Step 1: Keep Aadhaar card, landholding papers, and savings bank account ready.
+Step 2: Village Level Entrepreneur (VLE) enters registration details – state, district, Aadhaar, bank, and landholding information.
+Step 3: VLE fills in land details like survey number, area, etc.
+Step 4: Upload Aadhaar, land, and bank documents.
+Step 5: Accept self-declaration and save application.
+Step 6: Pay processing fee through CSC ID.
+Step 7: Check beneficiary status via Aadhaar.
+
+Apply Now: 
+Through UMANG portal or nearest CSC.
+
+Documents Required:
+- Aadhaar Card
+- Landholding Papers
+- Savings Bank Account
+

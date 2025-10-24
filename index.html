@@ -1,27 +1,286 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Government Schemes Portal</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f9ff;
+      color: #333;
+    }
 
-{% block content %}
-<h2>Explore Government Schemes</h2>
-<div class="row">
-  {% for scheme in schemes %}
-  <div class="col-md-6">
-    <div class="card mb-3 border-primary shadow-sm">
-      <div class="card-body">
-        <h4>{{ scheme.scheme_name }}</h4>
-        <p>{{ scheme.details }}</p>
-        <p><strong>Category:</strong> {{ scheme.schemeCategory }}, <strong>Level:</strong> {{ scheme.level }}</p>
-        <p><strong>Tags:</strong> {{ scheme.tags }}</p>
+    header {
+      background-color: #0078d7;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
 
-        <form action="{{ url_for('like_scheme', scheme_id=scheme.id) }}" method="POST" class="d-inline">
-          <button class="btn btn-outline-primary btn-sm">Like</button>
-        </form>
+    .lang-container {
+      margin-top: 10px;
+    }
 
-        <form action="{{ url_for('comment_scheme', scheme_id=scheme.id) }}" method="POST" class="mt-2">
-          <input type="text" name="comment" placeholder="Add a comment..." class="form-control" />
-        </form>
-      </div>
+    .lang-btn {
+      background: white;
+      color: #0078d7;
+      border: 1px solid #0078d7;
+      border-radius: 5px;
+      padding: 5px 12px;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-btn:hover {
+      background: #005a9e;
+      color: white;
+      border-color: #005a9e;
+    }
+
+    .lang-btn.active {
+      background: #0078d7;
+      color: white;
+    }
+
+    .lang-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #0078d7;
+      border-left: 5px solid #0078d7;
+      padding-left: 10px;
+    }
+
+    p, li {
+      line-height: 1.6;
+      font-size: 1.05rem;
+      margin-top: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #0078d7, #00a2ff);
+      color: white;
+      text-align: center;
+      padding: 3rem 2rem;
+      border-radius: 0 0 50px 50px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    footer {
+      background-color: #0078d7;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .highlight {
+      color: #0078d7;
+      font-weight: bold;
+    }
+
+    .loading {
+      opacity: 0.5;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Indian Government Schemes Portal
+    <div class="lang-container">
+      <button id="en-btn" class="lang-btn active">English</button>
+      <button id="hi-btn" class="lang-btn">हिन्दी</button>
+      <button id="te-btn" class="lang-btn">తెలుగు</button>
+      <button id="mr-btn" class="lang-btn">मराठी</button>
+      <button id="kn-btn" class="lang-btn">ಕನ್ನಡ</button>
+      <button id="ta-btn" class="lang-btn">தமிழ்</button>
     </div>
+  </header>
+
+  <div class="hero">
+    <h1 class="translatable">Empowering Citizens Through Awareness</h1>
+    <p class="translatable">Discover, learn, and benefit from government schemes designed to support education, health, business, and social welfare across India.</p>
   </div>
-  {% endfor %}
-</div>
-{% endblock %}
+
+  <section>
+    <h2 class="translatable">About the Portal</h2>
+    <p class="translatable">Our platform provides a simplified and accessible way for citizens to explore various Indian Government Schemes. Instead of searching through multiple sites and documents, users can view key information like eligibility, benefits, and application processes all in one place.</p>
+  </section>
+
+  <section>
+    <h2 class="translatable">How Our Website Helps</h2>
+    <p class="translatable">We aim to bridge the information gap between the government and the public. Our platform:</p>
+    <ul>
+      <li class="translatable">Makes schemes searchable by name, ministry, or category</li>
+      <li class="translatable">Provides short summaries and direct application links</li>
+      <li class="translatable">Shows updates or new initiatives launched by the government</li>
+      <li class="translatable">Empowers users to stay informed and take advantage of opportunities</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="translatable">Vision</h2>
+    <p class="translatable">To ensure that every citizen is aware of the benefits and support available through government initiatives — promoting inclusivity, growth, and progress.</p>
+  </section>
+
+  <footer>
+    © 2025 Government Schemes Portal | Designed to Inform and Empower
+  </footer>
+
+<script>
+const buttons = document.querySelectorAll('.lang-btn');
+const texts = document.querySelectorAll('.translatable');
+
+// Language code mapping for Google Translate
+const LANG_CODES = {
+  "en": "en",
+  "hi": "hi",
+  "te": "te",
+  "mr": "mr",
+  "kn": "kn",
+  "ta": "ta"
+};
+
+// Save original English text
+texts.forEach(el => {
+  el.dataset.original = el.textContent.trim();
+});
+
+// Translate using Google Translate free API
+async function translateText(text, targetLang) {
+  try {
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+    
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    // Google Translate returns data in format: [[[translatedText, originalText, ...]]]
+    if (data && data[0] && data[0][0] && data[0][0][0]) {
+      return data[0][0][0];
+    }
+    
+    return text;
+  } catch (error) {
+    console.error('Translation error:', error);
+    return text;
+  }
+}
+
+// Translate all texts
+async function translateAll(targetLang) {
+  const translations = [];
+  
+  for (let el of texts) {
+    const originalText = el.dataset.original;
+    const translated = await translateText(originalText, targetLang);
+    translations.push(translated);
+    
+    // Small delay to avoid rate limiting
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  
+  return translations;
+}
+
+// Handle language button clicks
+buttons.forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const lang = btn.id.split('-')[0];
+    
+    // Don't do anything if clicking the already active language
+    if (btn.classList.contains('active')) {
+      return;
+    }
+    
+    // Update active button
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // If English, restore original text
+    if (lang === "en") {
+      texts.forEach(el => {
+        el.textContent = el.dataset.original;
+        el.classList.remove('loading');
+      });
+      return;
+    }
+    
+    // Disable all buttons during translation
+    buttons.forEach(b => b.disabled = true);
+    
+    // Show loading state
+    texts.forEach(el => {
+      el.classList.add('loading');
+    });
+    
+    try {
+      // Get target language code
+      const targetLang = LANG_CODES[lang];
+      
+      // Translate all texts
+      const translations = await translateAll(targetLang);
+      
+      // Update DOM with translations
+      texts.forEach((el, i) => {
+        el.textContent = translations[i];
+        el.classList.remove('loading');
+      });
+    } catch (error) {
+      console.error('Translation failed:', error);
+      alert('Translation failed. Please try again.');
+      
+      // Restore original text on error
+      texts.forEach(el => {
+        el.textContent = el.dataset.original;
+        el.classList.remove('loading');
+      });
+      
+      // Reset to English button
+      buttons.forEach(b => b.classList.remove('active'));
+      document.getElementById('en-btn').classList.add('active');
+    } finally {
+      // Re-enable all buttons
+      buttons.forEach(b => b.disabled = false);
+    }
+  });
+});
+</script>
+
+</body>
+</html>

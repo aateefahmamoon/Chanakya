@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Schemes in {{ category }}</h2>
+<h2 class="translatable">Schemes in {{ category }}</h2>
 <div class="row">
   {% for scheme in schemes %}
   <div class="col-md-6 scheme" data-scheme-id="{{ scheme.id }}">
     <div class="card mb-3 border-primary shadow-sm">
       <div class="card-body">
-        <h4>{{ scheme.scheme_name }}</h4>
-        <p>{{ scheme.details }}</p>
-        <p><strong>Category:</strong> {{ scheme.schemeCategory }}</p>
-        <p><strong>Tags:</strong> {{ scheme.tags }}</p>
+        <h4 class="translatable">{{ scheme.scheme_name }}</h4>
+        <p class="translatable">{{ scheme.details }}</p>
+        <p><strong class="translatable">Category:</strong> <span class="translatable">{{ scheme.schemeCategory }}</span></p>
+        <p><strong class="translatable">Tags:</strong> <span class="translatable">{{ scheme.tags }}</span></p>
 
         <button class="like-btn btn btn-outline-primary btn-sm">Like (<span class="like-count">{{ scheme.like_count }}</span>)</button>
 
@@ -20,7 +20,7 @@
             <li>{{ comment.content }} <small class="text-muted">{{ comment.timestamp.strftime("%Y-%m-%d %H:%M:%S") }}</small></li>
             {% endfor %}
           </ul>
-          <input class="comment-input form-control" placeholder="Add a comment..." />
+          <input class="comment-input form-control" placeholder="[translate:Add a comment...]"/>
         </div>
       </div>
     </div>

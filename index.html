@@ -1,23 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Explore Government Schemes</h2>
+<h2 class="translatable">Explore Government Schemes</h2>
 <div class="row">
   {% for scheme in schemes %}
   <div class="col-md-6">
     <div class="card mb-3 border-primary shadow-sm">
       <div class="card-body">
-        <h4>{{ scheme.scheme_name }}</h4>
-        <p>{{ scheme.details }}</p>
-        <p><strong>Category:</strong> {{ scheme.schemeCategory }}, <strong>Level:</strong> {{ scheme.level }}</p>
-        <p><strong>Tags:</strong> {{ scheme.tags }}</p>
+        <h4 class="translatable">{{ scheme.scheme_name }}</h4>
+        <p class="translatable">{{ scheme.details }}</p>
+        <p><strong class="translatable">Category:</strong> <span class="translatable">{{ scheme.schemeCategory }}</span>, 
+           <strong class="translatable">Level:</strong> <span class="translatable">{{ scheme.level }}</span></p>
+        <p><strong class="translatable">Tags:</strong> <span class="translatable">{{ scheme.tags }}</span></p>
 
         <form action="{{ url_for('like_scheme', scheme_id=scheme.id) }}" method="POST" class="d-inline">
-          <button class="btn btn-outline-primary btn-sm">Like</button>
+          <button class="btn btn-outline-primary btn-sm translatable">Like</button>
         </form>
 
         <form action="{{ url_for('comment_scheme', scheme_id=scheme.id) }}" method="POST" class="mt-2">
-          <input type="text" name="comment" placeholder="Add a comment..." class="form-control" />
+          <input type="text" name="comment" placeholder="[translate:Add a comment...]" class="form-control translatable" />
         </form>
       </div>
     </div>

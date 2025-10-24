@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Scheme Categories</h2>
+<ul class="list-group">
+  {% for category in categories %}
+  <li class="list-group-item">
+    <a href="{{ url_for('category_view', category=category) }}">{{ category }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

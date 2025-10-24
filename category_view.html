@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Schemes in {{ category }}</h2>
+<div class="row">
+  {% for scheme in schemes %}
+  <div class="col-md-6 scheme" data-scheme-id="{{ scheme.id }}">
+    <div class="card mb-3 border-primary shadow-sm">
+      <div class="card-body">
+        <h4>{{ scheme.scheme_name }}</h4>
+        <p>{{ scheme.details }}</p>
+        <p><strong>Category:</strong> {{ scheme.schemeCategory }}</p>
+        <p><strong>Tags:</strong> {{ scheme.tags }}</p>
+
+        <button class="like-btn btn btn-outline-primary btn-sm">Like (<span class="like-count">{{ scheme.like_count }}</span>)</button>
+
+        <div class="comments mt-3">
+          <ul class="comment-list list-unstyled">
+            {% for comment in scheme.comments %}
+            <li>{{ comment.content }} <small class="text-muted">{{ comment.timestamp.strftime("%Y-%m-%d %H:%M:%S") }}</small></li>
+            {% endfor %}
+          </ul>
+          <input class="comment-input form-control" placeholder="Add a comment..." />
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+document.querySelectorAll('.like-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const schemeDiv = button.closest('.scheme');
+    const schemeId = schemeDiv.dataset.schemeId;
+    fetch(`/like/${schemeId}`, { method: 'POST' })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          schemeDiv.querySelector('.like-count').textContent = data.likes;
+        }
+      });
+  });
+});
+
+document.querySelectorAll('.comment-input').forEach(input => {
+  input.addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const schemeDiv = input.closest('.scheme');
+      const schemeId = schemeDiv.dataset.schemeId;
+      fetch(`/comment/${schemeId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: input.value })
+      })
+      .then(res => res.json())
+      .then(comments => {
+        const list = schemeDiv.querySelector('.comment-list');
+        list.innerHTML = '';
+        comments.forEach(c => {
+          const li = document.createElement('li');
+          li.textContent = c.content + ' ';
+          const small = document.createElement('small');
+          small.classList.add('text-muted');
+          small.textContent = c.timestamp;
+          li.appendChild(small);
+          list.appendChild(li);
+        });
+        input.value = '';
+      });
+    }
+  });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+body {
+  background-color: #f0f8ff;
+}
+
+.card {
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background-color: #e6f7ff;
+  transform: scale(1.01);
+}
+
+.btn {
+  border-radius: 20px;
+}

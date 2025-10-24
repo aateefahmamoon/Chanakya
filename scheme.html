@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Trending Schemes</h2>
+<div class="row">
+  {% for scheme, likes in schemes %}
+  <div class="col-md-6">
+    <div class="card mb-3 border-warning shadow-sm">
+      <div class="card-body">
+        <h4>{{ scheme.scheme_name }} <span class="badge bg-success">{{ likes }} Likes</span></h4>
+        <p>{{ scheme.details }}</p>
+        <p><strong>Category:</strong> {{ scheme.schemeCategory }}, <strong>Level:</strong> {{ scheme.level }}</p>
+        <p><strong>Tags:</strong> {{ scheme.tags }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

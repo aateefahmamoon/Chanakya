@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,7 +61,7 @@
       padding: 2rem;
       background: white;
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     h2 {
@@ -69,7 +70,8 @@
       padding-left: 10px;
     }
 
-    p, li {
+    p,
+    li {
       line-height: 1.6;
       font-size: 1.05rem;
       margin-top: 10px;
@@ -85,7 +87,7 @@
       text-align: center;
       padding: 3rem 2rem;
       border-radius: 0 0 50px 50px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .hero h1 {
@@ -117,10 +119,100 @@
       opacity: 0.5;
       font-style: italic;
     }
+
+    /* Floating chatbot button */
+    #chatbot-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 54px;
+      height: 54px;
+      background: #128c7e;
+      color: #fff;
+      font-size: 2.2rem;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    /* Chatbot popup styling */
+    #chatbot-popup {
+      display: none;
+      position: fixed;
+      bottom: 92px;
+      right: 28px;
+      width: 320px;
+      max-width: 95vw;
+      background: #fff;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+      border-radius: 15px;
+      z-index: 9999;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Header */
+    #chatbot-header {
+      background: #128c7e;
+      color: #fff;
+      padding: 0.7rem 1rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Chat area */
+    #chatbot-chat-area {
+      padding: 1rem;
+      height: 200px;
+      overflow-y: auto;
+      font-size: 1rem;
+      border-bottom: 1px solid #eee;
+      background: #f9f9f9;
+    }
+
+    /* Input field and send button */
+    #chatbot-input {
+      border: none;
+      padding: 0.65rem;
+      width: 68%;
+      margin: 0.6em;
+      border-radius: 10px;
+      background: #f4f9ff;
+      font-size: 1em;
+    }
+
+    #chatbot-send {
+      background: #128c7e;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0.6em 1.2em;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 0.6em;
+      transition: background 0.2s;
+    }
+
+    #chatbot-send:hover {
+      background: #005a9e;
+    }
+
+    /* Close button */
+    #chatbot-close {
+      cursor: pointer;
+      font-size: 1.5em;
+    }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     Indian Government Schemes Portal
     <div class="lang-container">
@@ -135,17 +227,24 @@
 
   <div class="hero">
     <h1 class="translatable">Empowering Citizens Through Awareness</h1>
-    <p class="translatable">Discover, learn, and benefit from government schemes designed to support education, health, business, and social welfare across India.</p>
+    <p class="translatable">
+      Discover, learn, and benefit from government schemes designed to support education, health,
+      business, and social welfare across India.
+    </p>
   </div>
 
   <section>
     <h2 class="translatable">About the Portal</h2>
-    <p class="translatable">Our platform provides a simplified and accessible way for citizens to explore various Indian Government Schemes. Instead of searching through multiple sites and documents, users can view key information like eligibility, benefits, and application processes all in one place.</p>
+    <p class="translatable">Our platform provides a simplified and accessible way for citizens to explore various Indian
+      Government Schemes. Instead of searching through multiple sites and documents, users can view key information like
+      eligibility, benefits, and application processes all in one place.</p>
   </section>
 
   <section>
     <h2 class="translatable">How Our Website Helps</h2>
-    <p class="translatable">We aim to bridge the information gap between the government and the public. Our platform:</p>
+    <p class="translatable">
+      We aim to bridge the information gap between the government and the public. Our platform:
+    </p>
     <ul>
       <li class="translatable">Makes schemes searchable by name, ministry, or category</li>
       <li class="translatable">Provides short summaries and direct application links</li>
@@ -156,131 +255,112 @@
 
   <section>
     <h2 class="translatable">Vision</h2>
-    <p class="translatable">To ensure that every citizen is aware of the benefits and support available through government initiatives — promoting inclusivity, growth, and progress.</p>
+    <p class="translatable">To ensure that every citizen is aware of the benefits and support available through
+      government initiatives — promoting inclusivity, growth, and progress.</p>
   </section>
 
   <footer>
     © 2025 Government Schemes Portal | Designed to Inform and Empower
   </footer>
 
-<script>
-const buttons = document.querySelectorAll('.lang-btn');
-const texts = document.querySelectorAll('.translatable');
+  <!-- Chatbot Button (Robot Icon) -->
+  <div id="chatbot-btn" title="Chat with us">🤖</div>
+  <!-- Chatbot Popup -->
+  <div id="chatbot-popup">
+    <div id="chatbot-header">
+      <span>Chatbot</span>
+      <span id="chatbot-close">&times;</span>
+    </div>
+    <div id="chatbot-chat-area"></div>
+    <input id="chatbot-input" type="text" placeholder="Type your question...">
+    <button id="chatbot-send">Send</button>
+  </div>
 
-// Language code mapping for Google Translate
-const LANG_CODES = {
-  "en": "en",
-  "hi": "hi",
-  "te": "te",
-  "mr": "mr",
-  "kn": "kn",
-  "ta": "ta"
-};
-
-// Save original English text
-texts.forEach(el => {
-  el.dataset.original = el.textContent.trim();
-});
-
-// Translate using Google Translate free API
-async function translateText(text, targetLang) {
-  try {
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
-    
-    const response = await fetch(url);
-    const data = await response.json();
-    
-    // Google Translate returns data in format: [[[translatedText, originalText, ...]]]
-    if (data && data[0] && data[0][0] && data[0][0][0]) {
-      return data[0][0][0];
+  <script>
+    // --- Chatbot popup open/close
+    document.getElementById('chatbot-btn').onclick = function () {
+      document.getElementById('chatbot-popup').style.display = 'block';
+    };
+    document.getElementById('chatbot-close').onclick = function () {
+      document.getElementById('chatbot-popup').style.display = 'none';
+    };
+    // --- Chatbot Send Button (simple static demo reply)
+    document.getElementById('chatbot-send').onclick = function () {
+      const input = document.getElementById('chatbot-input');
+      const chatArea = document.getElementById('chatbot-chat-area');
+      const userMsg = input.value.trim();
+      if (!userMsg) return;
+      chatArea.innerHTML += `<div style="color:#128c7e;margin-bottom:6px;"><b>🧑:</b> ${userMsg}</div>`;
+      input.value = "";
+      chatArea.innerHTML += `<div style="color:#303030;margin-bottom:6px;"><b>🤖:</b> I'm a demo bot! (Replace this with backend connection)</div>`;
+      chatArea.scrollTop = chatArea.scrollHeight;
+    };
+    // --- Language translation code
+    const buttons = document.querySelectorAll('.lang-btn');
+    const texts = document.querySelectorAll('.translatable');
+    const LANG_CODES = { "en": "en", "hi": "hi", "te": "te", "mr": "mr", "kn": "kn", "ta": "ta" };
+    texts.forEach(el => { el.dataset.original = el.textContent.trim(); });
+    async function translateText(text, targetLang) {
+      try {
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data && data[0] && data[0][0] && data[0][0][0]) {
+          return data[0][0][0];
+        }
+        return text;
+      } catch (error) {
+        console.error('Translation error:', error);
+        return text;
+      }
     }
-    
-    return text;
-  } catch (error) {
-    console.error('Translation error:', error);
-    return text;
-  }
-}
-
-// Translate all texts
-async function translateAll(targetLang) {
-  const translations = [];
-  
-  for (let el of texts) {
-    const originalText = el.dataset.original;
-    const translated = await translateText(originalText, targetLang);
-    translations.push(translated);
-    
-    // Small delay to avoid rate limiting
-    await new Promise(resolve => setTimeout(resolve, 100));
-  }
-  
-  return translations;
-}
-
-// Handle language button clicks
-buttons.forEach(btn => {
-  btn.addEventListener('click', async () => {
-    const lang = btn.id.split('-')[0];
-    
-    // Don't do anything if clicking the already active language
-    if (btn.classList.contains('active')) {
-      return;
+    async function translateAll(targetLang) {
+      const translations = [];
+      for (let el of texts) {
+        const originalText = el.dataset.original;
+        const translated = await translateText(originalText, targetLang);
+        translations.push(translated);
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
+      return translations;
     }
-    
-    // Update active button
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    
-    // If English, restore original text
-    if (lang === "en") {
-      texts.forEach(el => {
-        el.textContent = el.dataset.original;
-        el.classList.remove('loading');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const lang = btn.id.split('-')[0];
+        if (btn.classList.contains('active')) return;
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (lang === "en") {
+          texts.forEach(el => {
+            el.textContent = el.dataset.original;
+            el.classList.remove('loading');
+          });
+          return;
+        }
+        buttons.forEach(b => b.disabled = true);
+        texts.forEach(el => { el.classList.add('loading'); });
+        try {
+          const targetLang = LANG_CODES[lang];
+          const translations = await translateAll(targetLang);
+          texts.forEach((el, i) => {
+            el.textContent = translations[i];
+            el.classList.remove('loading');
+          });
+        } catch (error) {
+          console.error('Translation failed:', error);
+          alert('Translation failed. Please try again.');
+          texts.forEach(el => {
+            el.textContent = el.dataset.original;
+            el.classList.remove('loading');
+          });
+          buttons.forEach(b => b.classList.remove('active'));
+          document.getElementById('en-btn').classList.add('active');
+        } finally {
+          buttons.forEach(b => b.disabled = false);
+        }
       });
-      return;
-    }
-    
-    // Disable all buttons during translation
-    buttons.forEach(b => b.disabled = true);
-    
-    // Show loading state
-    texts.forEach(el => {
-      el.classList.add('loading');
     });
-    
-    try {
-      // Get target language code
-      const targetLang = LANG_CODES[lang];
-      
-      // Translate all texts
-      const translations = await translateAll(targetLang);
-      
-      // Update DOM with translations
-      texts.forEach((el, i) => {
-        el.textContent = translations[i];
-        el.classList.remove('loading');
-      });
-    } catch (error) {
-      console.error('Translation failed:', error);
-      alert('Translation failed. Please try again.');
-      
-      // Restore original text on error
-      texts.forEach(el => {
-        el.textContent = el.dataset.original;
-        el.classList.remove('loading');
-      });
-      
-      // Reset to English button
-      buttons.forEach(b => b.classList.remove('active'));
-      document.getElementById('en-btn').classList.add('active');
-    } finally {
-      // Re-enable all buttons
-      buttons.forEach(b => b.disabled = false);
-    }
-  });
-});
-</script>
-
+  </script>
 </body>
+
 </html>

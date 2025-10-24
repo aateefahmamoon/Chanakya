@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ selected_category }} - {{ t.dashboard_heading }}</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2a6fdb;
+        }
+
+        .scheme-card {
+            background-color: #e3f2fd;
+            border: 1px solid #c9e1f5;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .scheme-card h2 {
+            color: #2a6fdb;
+            margin-top: 0;
+        }
+
+        .scheme-card p {
+            line-height: 1.6;
+        }
+
+        .scheme-card ul {
+            padding-left: 20px;
+        }
+
+        .scheme-card li {
+            margin-bottom: 5px;
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #2a6fdb;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .no-schemes {
+            text-align: center;
+            font-size: 1.2em;
+            color: #e74c3c;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{ selected_category }} - {{ t.dashboard_heading }}</h1>
+
+        {% if schemes %}
+        {% for scheme in schemes %}
+        <div class="scheme-card">
+            <h2>{{ scheme['name'] }}</h2>
+            <p><strong>{{ t.category_label }}:</strong> {{ scheme['category'] }}</p>
+            <p><strong>{{ t.details }}:</strong> {{ scheme['details'] }}</p>
+            <p><strong>{{ t.benefits }}:</strong> {{ scheme['benefits'] }}</p>
+            <p><strong>{{ t.application }}:</strong> {{ scheme['application'] }}</p>
+            <p><strong>{{ t.documents }}:</strong> {{ scheme['documents'] }}</p>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p class="no-schemes">{{ t.no_schemes }}</p>
+        {% endif %}
+
+        <a href="{{ url_for('home', lang=lang) }}" class="back-button">{{ t.go_back }}</a>
+    </div>
+</body>
+
+</html>

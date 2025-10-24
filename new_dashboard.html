@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t.dashboard_heading }}</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2a6fdb;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .category-card {
+            background-color: #e3f2fd;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2a6fdb;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            display: block;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #2a6fdb;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{ t.dashboard_heading }}</h1>
+        <p style="text-align: center;">{{ t.category_text }}</p>
+
+        <div class="category-grid">
+            {% set categories = matched_schemes | map(attribute='category_original') | unique | list %}
+            {% for cat_original in categories %}
+                {% set cat_translated = matched_schemes | selectattr('category_original', 'equalto', cat_original) | map(attribute='category') | first %}
+                <a href="{{ url_for('show_results', category=cat_original, age=user_profile['age'], gender=user_profile['gender'], caste=user_profile['caste'], income=user_profile['income'], location=user_profile['location'], lang=lang) }}" class="category-card">
+                    {{ cat_translated }}
+                </a>
+            {% endfor %}
+        </div>
+
+        {% if not categories %}
+        <p style="text-align: center; margin-top: 50px; font-size: 1.2em;">{{ t.no_schemes }}</p>
+        {% endif %}
+
+        <a href="{{ url_for('home', lang=lang) }}" class="back-button">{{ t.go_back }}</a>
+    </div>
+</body>
+
+</html>

@@ -268,9 +268,11 @@
   <!-- Chatbot Popup -->
   <div id="chatbot-popup">
     <div id="chatbot-header">
-      <span>Chatbot</span>
-      <span id="chatbot-close">&times;</span>
+      <span class="title">Chatbot</span>
+      <span id="chatbot-maximize" title="Maximize">⬜</span>
+      <span id="chatbot-close" title="Close">&times;</span>
     </div>
+
     <div id="chatbot-chat-area"></div>
     <input id="chatbot-input" type="text" placeholder="Type your question...">
     <button id="chatbot-send">Send</button>
@@ -281,20 +283,47 @@
     document.getElementById('chatbot-btn').onclick = function () {
       document.getElementById('chatbot-popup').style.display = 'block';
     };
+    document.getElementById('chatbot-maximize').onclick = function () {
+      window.open('chat_full.html', '_blank');
+    };
     document.getElementById('chatbot-close').onclick = function () {
       document.getElementById('chatbot-popup').style.display = 'none';
     };
-    // --- Chatbot Send Button (simple static demo reply)
-    document.getElementById('chatbot-send').onclick = function () {
+
+    // --- Chatbot Send Button (connected to Flask API)
+    document.getElementById('chatbot-send').onclick = async function () {
       const input = document.getElementById('chatbot-input');
       const chatArea = document.getElementById('chatbot-chat-area');
       const userMsg = input.value.trim();
       if (!userMsg) return;
+
+      // Show user's message
       chatArea.innerHTML += `<div style="color:#128c7e;margin-bottom:6px;"><b>🧑:</b> ${userMsg}</div>`;
       input.value = "";
-      chatArea.innerHTML += `<div style="color:#303030;margin-bottom:6px;"><b>🤖:</b> I'm a demo bot! (Replace this with backend connection)</div>`;
+
+      // Show loading
+      const loadingDiv = document.createElement('div');
+      loadingDiv.style.color = "#303030";
+      loadingDiv.style.fontStyle = "italic";
+      loadingDiv.textContent = "🤖: Typing...";
+      chatArea.appendChild(loadingDiv);
       chatArea.scrollTop = chatArea.scrollHeight;
+
+      try {
+        const response = await fetch('http://localhost:8501/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: userMsg })
+        });
+        const data = await response.json();
+        loadingDiv.textContent = `🤖: ${data.answer}`;
+        chatArea.scrollTop = chatArea.scrollHeight;
+      } catch (error) {
+        loadingDiv.textContent = "🤖: Sorry, something went wrong!";
+        console.error(error);
+      }
     };
+
     // --- Language translation code
     const buttons = document.querySelectorAll('.lang-btn');
     const texts = document.querySelectorAll('.translatable');

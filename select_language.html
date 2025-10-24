@@ -1,0 +1,60 @@
+<!-- templates/select_language.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yojana Saathi - Select Language</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f4f8;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2a6fdb;
+            margin-bottom: 30px;
+        }
+        .lang-button {
+            padding: 20px 30px;
+            margin: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #2a6fdb;
+            color: white;
+            transition: transform 0.2s;
+        }
+        .lang-button:hover {
+            transform: translateY(-3px);
+            background-color: #255aae;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Your Language</h1>
+        <div>
+            <a href="{{ url_for('set_language', lang='en') }}"><button class="lang-button">English</button></a>
+            <a href="{{ url_for('set_language', lang='hi') }}"><button class="lang-button">हिन्दी</button></a>
+            <a href="{{ url_for('set_language', lang='te') }}"><button class="lang-button">తెలుగు</button></a>
+            <a href="{{ url_for('set_language', lang='kn') }}"><button class="lang-button">ಕನ್ನಡ</button></a>
+            <a href="{{ url_for('set_language', lang='ml') }}"><button class="lang-button">മലയാളം</button></a>
+            <a href="{{ url_for('set_language', lang='ta') }}"><button class="lang-button">தமிழ்</button></a>
+        </div>
+    </div>
+</body>
+</html>

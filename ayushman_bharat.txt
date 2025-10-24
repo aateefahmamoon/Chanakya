@@ -1,0 +1,89 @@
+Scheme Name: Ayushman Bharat – Pradhan Mantri Jan Arogya Yojana (PM-JAY)
+
+Launched: 23rd September 2018  
+By: Hon’ble Prime Minister Shri Narendra Modi  
+Part of: National Health Policy 2017
+
+
+OVERVIEW:
+
+Ayushman Bharat is a flagship initiative under the National Health Policy 2017 to achieve Universal Health Coverage (UHC). It is aligned with the Sustainable Development Goals (SDGs) and ensures "no one is left behind".
+
+It comprises two components:
+1. Health and Wellness Centres (HWCs)
+2. Pradhan Mantri Jan Arogya Yojana (PM-JAY)
+
+PM-JAY is the largest health assurance scheme in the world, offering ₹5,00,000 annual health cover per family for secondary and tertiary care, covering 10.74 crore poor families (~50 crore individuals).
+
+ 
+BENEFITS:
+
+- ₹5,00,000 cashless cover per family/year
+- No cap on family size, age, or gender
+- Pre-existing diseases covered from day one
+- Family floater basis: any family member can use
+- Covers:
+  - Pre- and post-hospitalization (15 days follow-up)
+  - Medical consultation, surgery, diagnostics, ICU
+  - Medicines, implants, food, accommodation
+
+
+ELIGIBILITY:
+
+
+Rural Families:
+- Only one room with kucha roof/walls
+- No adult between 16–59 years
+- Female-headed household with no male adult
+- Disabled member with no able-bodied adult
+- SC/ST households
+- Landless households depending on manual labour
+- Automatically included: destitute, manual scavengers, bonded labourers, primitive tribal groups
+
+Urban Workers (any one of the following):
+- Ragpicker, beggar
+- Domestic worker, cobbler, hawker, vendor
+- Construction worker, plumber, mason, labourer
+- Sanitation worker, sweeper, gardener
+- Handicraft worker, tailor, artisan
+- Driver, cart puller, rickshaw puller
+- Waiter, delivery assistant, helper
+- Mechanic, electrician, repair worker
+- Washer-man, chowkidar
+
+Exclusions:
+- Owns a 2/3/4-wheeler or motorized boat
+- Mechanized farming equipment
+- Kisan credit card limit over ₹50,000
+- Government employee / PSU / salaried over ₹10,000/month
+- Owns fridge, landline, decent pucca house, or 5+ acres land
+
+
+APPLICATION PROCESS (Offline)
+
+Visit hospital or CSC (Common Service Centre). Arogya Mitra assists the process.
+
+Step 1: Submit PM letter / RSBY URN / ration card / mobile no.  
+Step 2: BIS database search by operator  
+Step 3: Upload ID documents – Aadhaar, ration card, etc.  
+Step 4: Family verification and document upload  
+Step 5: Health agency reviews and approves/rejects  
+Step 6: On approval, e-card is issued
+
+Also accessible via UMANG app.
+
+
+DOCUMENTS REQUIRED
+
+1. Aadhaar Card / PAN Card (Age & ID Proof)
+2. Proof of Address
+3. Mobile Number / Email
+4. Caste Certificate
+5. Income Certificate
+6. Family Status Proof (Joint/Nuclear)
+7. Ration Card (if applicable)
+
+Useful Links
+
+Eligibility check: https://mera.pmjay.gov.in  
+Official portal: https://pmjay.gov.in  
